@@ -1,9 +1,12 @@
 package com.ys.rest.repository;
 
 import com.ys.rest.model.User;
-import org.springframework.data.repository.ListCrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends ListCrudRepository<User, Long>, PagingAndSortingRepository<User, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByName(String name);
 
 }
